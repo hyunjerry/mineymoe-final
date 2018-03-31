@@ -1,0 +1,22 @@
+<%= form_with(model: tmpdatabasae, local: true) do |form| %>
+  <% if tmpdatabasae.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tmpdatabasae.errors.count, "error") %> prohibited this tmpdatabasae from being saved:</h2>
+
+      <ul>
+      <% tmpdatabasae.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :tmpdatabasae_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

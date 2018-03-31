@@ -1,0 +1,10 @@
+entrypoint: bundle exec rackup --port $PORT
+env: flex
+runtime: ruby
+
+
+env_variables:
+  SECRET_KEY_BASE: 07d86276c2e16c0bdfd5db6a613c42b47e83e821b22e24c3454a21682a5025f20980b38635cf528209523609ebf95d3f55a92af98430b8c3b2f33f86e714928e
+
+beta_settings:
+  cloud_sql_instances: "mnmo-199708:us-central1:mnmodb"
