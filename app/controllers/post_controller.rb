@@ -23,7 +23,7 @@ class PostController < ApplicationController
     post.content = params[:content]
     post.a = 0
     post.b = 0
-    post.user_name = ""
+    post.user_name = current_user.name
     post.total = 0
 
     uploader1 = ImageUploader.new
@@ -37,7 +37,7 @@ class PostController < ApplicationController
 
     post.save
 
-    redirect_to '/post/new'
+    redirect_to '/post'
 
   end
 
@@ -63,6 +63,10 @@ class PostController < ApplicationController
     p.total = p.total + 1
     p.save
 
+    c = Check.new
+    c.user = current_user
+    c.post_id = params[:post_id]
+    c.save
     redirect_to '/post'
   end
 
@@ -72,6 +76,10 @@ class PostController < ApplicationController
     p.total = p.total + 1
     p.save
 
+    c = Check.new
+    c.user = current_user
+    c.post_id = params[:post_id]
+    c.save
     redirect_to '/post'
   end
 

@@ -14,14 +14,24 @@
       <div style = "display: flex;">
         <div class="col-sm-6" style= "border: 5px solid black; width: 400px; height: 400px; ;">
           <img style="max-width: 400px;" src="<%= p.a_url %>" />
-          <div class="bottomblack">Choose Black</div>
-          <a href = "/black/<%=p.id%>"> <button type="button" class="btn btn-outline-secondary">Black</button> </a>
+          <%if Check.where(:user_id=>current_user).where(:post_id => p.id).empty?%>
+
+            <a href = "/black/<%=p.id%>"> <button type="button" class="btn btn-outline-secondary">Black</button> </a>
+
+          <%else%>
+            <div class="bottomblack"> <%= p.a*100 / p.total %> % </div>
+          <%end%>
         </div>
 
         <div class="col-sm-6" style= "border: 5px solid black; width: 400px; height: 400px; ;">
           <img style="max-width: 400px;" src="<%= p.b_url%>" />
-          <div class="bottomwhite">Choose White</div>
-          <a href="/white/<%= p.id%>"> <button type="button" class="btn btn-outline-secondary">White</button> </a>
+          <%if Check.where(:user_id=>current_user).where(:post_id => p.id).empty?%>
+
+            <a href="/white/<%= p.id%>"> <button type="button" class="btn btn-outline-secondary">White</button> </a>
+          <%else%>
+            <div class="bottomwhite"> <%= p.b*100 / p.total %> % </div>
+          <%end%>
+
         </div>
 
      </div>
@@ -42,8 +52,6 @@
 
   <br>
   <br>
-
-
 
   </div>
 </body>
