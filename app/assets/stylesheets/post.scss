@@ -1,3 +1,24 @@
 // Place all the styles related to the title controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.col-sm-6 .img {
+    margin: auto;
+    width: 100%;
+}
+
+.col-sm-6 .btn {
+    position: absolute;
+    top: 91%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    // cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
