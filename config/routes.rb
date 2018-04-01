@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'post/post'
   get 'post/new'
-  post 'post/create'
+  post "create" => "post#create"
 
   #
   # get 'auth/:provider/callback', to: 'sessions#create'

@@ -4,14 +4,18 @@
     <Title>New Post</Title>
   </head>
   <body>
-    <form method='POST' action='create'>
+    <form method='POST' action='/create' enctype="multipart/form-data">
       <br />
       <label>Title</label>
       <input type="text" name="title" placeholder="Title"/><br />
       <label>Content</label>
       <textarea name="content">Tell us about this vote.</textarea>
       <br />
-      <input type="file" name="pic" accept="image/*">
+      <label>Picture 1</label>
+      <input type="file" name="pic1" accept="image/*">
+      <br />
+      <label>Picture 1</label>
+      <input type="file" name="pic2" accept="image/*">
       <br />
       <input type="submit" value="Submit"/>
     </form>
