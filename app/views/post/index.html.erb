@@ -21,10 +21,16 @@
 
      <p>###########</p>
 
-       <a href = "/like/<%=p.id%>"> <button type="button" class="btn btn-primary">Like (<%=Like.where(:post_id => p.id).size %>
-)</button></a>
-       <p> check for true in if </p>
 
+<%if Like.where(:user_id=>current_user).where(:post_id => p.id).empty?%>
+  <div class="button-holder">
+    <a href = "/like/<%=p.id%>"> <button type="button" class="btn btn-primary">Like(<%=Like.where(:post_id => p.id).size %></button></a>
+  </div>
+<%else%>
+  <div class="button-holder">
+    <a href = "/unlike/<%=p.id%>"> <button type="button" class="btn btn-danger">Unlike </button> </a>
+  </div>
+<%end%>
 
 
 

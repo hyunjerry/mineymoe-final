@@ -1,39 +1,37 @@
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<div class="container-fluid">
-  <h1>Vote page!!!</h1>
+  <h1>Post page!!!<%current_user.uid%></h1>
   <br>
-
   <div>
-    <div style = "display: flex;">
-      <div class="container" style= "border: 5px solid black; width: 400px; height: 400px;">
-        <img src="<%= @thepost.a_url %>" alt="Norway"  width="100%" height="100%" background-size=" contain;">
-        <div class="bottomblack">Choose Black</div>
-      </div>
+    <% @posts.each do |p| %>
+      <div style = "display: flex;">
+        <div style= "border: 5px solid black; width: 400px; height: 400px;"> <p> Picture A </p> </div>
 
-      <!-- <div class="col-sm-2" align="center" style = "font-size: 48px;">
-        <p> VS </p>
-      </div> -->
+        <div style = "font-size: 48px;"> <p> VS </p> </div>
 
-      <div class="container" style= "border: 5px solid black; width: 400px; height: 400px;">
-        <img src="<%= @thepost.b_url %>" alt="Norway" width="100%" height="100%" background-size= "contain;">
-        <div class="bottomwhite">Choose White</div>
-      </div>
-    </div>
- </div>
+        <div style= "border: 5px solid black; width: 400px; height: 400px;"> <p> Picture B </p> </div>
+     </div>
 
-    <%if Like.where(:user_id=>current_user).where(:vpost_id => :post_id).empty?%>
-      <div class="button-holder">
-        <a href = "/like/:post_id"> <button type="button" class="btn btn-primary">Like </button></a>
-      </div>
-    <%else%>
-      <div class="button-holder">
-        <a href = "/like/:post_id"> <button type="button" class="btn btn-danger">Unlike </button> </a>
-      </div>
-    <%end%>
+
+     <p>###########</p>
+
+
+ <%if Like.where(:user_id=>current_user).where(:post_id => p.id).empty?%>
+   <div class="button-holder">
+     <a href = "/like/<%=p.id%>"> <button type="button" class="btn btn-primary">Like(<%=Like.where(:post_id => p.id).size %></button></a>
+   </div>
+ <%else%>
+   <div class="button-holder">
+     <a href = "/unlike/<%=p.id%>"> <button type="button" class="btn btn-danger">Unlike </button> </a>
+   </div>
+ <%end%>
+
 
         <div style = "display: flex;">
           <button type="button" class="btn btn-primary">Choose A</button>
