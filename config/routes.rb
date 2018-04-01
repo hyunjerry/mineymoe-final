@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'post/new'
 
-  get '/post' => 'post#index'
+  get 'post' => 'post#index'
   get 'post/:post_id' => 'post#view'
 
 

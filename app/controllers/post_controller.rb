@@ -8,7 +8,6 @@ class PostController < ApplicationController
   end
 
   def new
-
   end
 
   def view
@@ -18,12 +17,11 @@ class PostController < ApplicationController
 
   def create
     post = Post.new
-
     post.title = params[:title]
     post.content = params[:content]
     post.a = 0
     post.b = 0
-    post.user_name = current_user.name
+    post.user_name = ""
     post.total = 0
 
     uploader1 = ImageUploader.new
@@ -64,9 +62,10 @@ class PostController < ApplicationController
     p.save
 
     c = Check.new
-    c.user = current_user
-    c.post_id = params[:post_id]
-    c.save
+   c.user = current_user
+   c.post_id = params[:post_id]
+   c.save
+
     redirect_to '/post'
   end
 
@@ -75,15 +74,11 @@ class PostController < ApplicationController
     p.b = p.b + 1
     p.total = p.total + 1
     p.save
-
     c = Check.new
-    c.user = current_user
-    c.post_id = params[:post_id]
-    c.save
-    redirect_to '/post'
+   c.user = current_user
+   c.post_id = params[:post_id]
+   c.save
+   redirect_to '/post'
   end
-
-
-
 
 end
