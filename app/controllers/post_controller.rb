@@ -7,22 +7,43 @@ class PostController < ApplicationController
   def post
   end
 
+  def new
+
+  end
+
+  def view
+    @thepost = Post.find(params[:post_id])
+  end
+
   def create
-    p = Post.new
-    p.user = current_user
-    p.atitle = params[:atitle]
-    p.btitle = params[:btitle]
-    p.acontent = params[:acontent]
-    p.bcontent = params[:bcontent]
-    p.save
-    redirect_to "/post"
+    post = Post.new
+
+    post.title = params[:title]
+    post.content = params[:content]
+    post.a = 0
+    post.b = 0
+    post.user_name = ""
+    post.total = 0
+
+    uploader1 = ImageUploader.new
+    uploader1.store!(params[:pic1])
+
+    uploader2 = ImageUploader.new
+    uploader2.store!(params[:pic2])
+
+    post.a_url = uploader1.url
+    post.b_url = uploader2.url
+
+    post.save
+
+    redirect_to '/post/new'
 
   end
 
   def like
     l = Like.new
     l.user = current_user
-    l.vpost = Post.finparams[:post_id]
+    l.vpost = Post.find(params[:post_id])
     l.save
     redirect_to "/post"
   end

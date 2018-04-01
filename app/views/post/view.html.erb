@@ -10,7 +10,7 @@
   <div>
     <div style = "display: flex;">
       <div class="container" style= "border: 5px solid black; width: 400px; height: 400px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeNp_ggupdh4r51OozUiyWZup6nV8lzLUnShrSBhPZhcgqJ7_-DA" alt="Norway"  width="100%" height="100%" background-size=" contain;">
+        <img src="<%= @thepost.a_url %>" alt="Norway"  width="100%" height="100%" background-size=" contain;">
         <div class="bottomblack">Choose Black</div>
       </div>
 
@@ -19,13 +19,13 @@
       </div> -->
 
       <div class="container" style= "border: 5px solid black; width: 400px; height: 400px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3KcvUBNUHxyFK6qih2oOmqM0zG3ecWb010k_OaHynN69RMMFUtg" alt="Norway" width="100%" height="100%" background-size= "contain;">
+        <img src="<%= @thepost.b_url %>" alt="Norway" width="100%" height="100%" background-size= "contain;">
         <div class="bottomwhite">Choose White</div>
       </div>
     </div>
  </div>
 
-    <%if Like.where(:user_id=>current_user).where(:vpost_id => p).empty?%>
+    <%if Like.where(:user_id=>current_user).where(:vpost_id => :post_id).empty?%>
       <div class="button-holder">
         <a href = "/like/:post_id"> <button type="button" class="btn btn-primary">Like </button></a>
       </div>
@@ -34,11 +34,6 @@
         <a href = "/like/:post_id"> <button type="button" class="btn btn-danger">Unlike </button> </a>
       </div>
     <%end%>
-
-
-
-
-
 
         <div style = "display: flex;">
           <button type="button" class="btn btn-primary">Choose A</button>
