@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/post' => 'post#index'
 
   get 'post/post' => 'post#post'
-  post 'create' => 'post#create'
+  post 'post/create' => 'post#create'
 
   get 'like' => 'post#postlike'
 
