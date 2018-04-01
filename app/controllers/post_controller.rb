@@ -38,14 +38,14 @@ class PostController < ApplicationController
 
   def postlike
     l = Like.new
-    l.user = current_user
-    l.vpost_id = params[:post_id]
+    l.user = current_user;
+    l.post = Post.find(params[:post_id])
     l.save
     redirect_to "/post"
   end
 
   def postunlike
-    l = Like.where(:vpost_id => params[:post_id]).where(:user => current_user).take
+    l = Like.where(:post_id => params[:post_id]).where(:user => current_user).take
     l.delete
     redirect_to "/post"
   end
