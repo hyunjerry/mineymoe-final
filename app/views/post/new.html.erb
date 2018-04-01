@@ -2,6 +2,37 @@
 <html>
   <head>
     <Title>New Post</Title>
+    <script>
+      function readURL1(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#img_prev1')
+              .attr('src', e.target.result)
+              .width(400)
+              .height(400);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      function readURL2(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#img_prev2')
+              .attr('src', e.target.result)
+              .width(400)
+              .height(400);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
   </head>
   <body>
     <form method='POST' action='create' enctype="multipart/form-data">
@@ -12,10 +43,14 @@
       <textarea name="content">Tell us about this vote.</textarea>
       <br />
       <label>Picture 1</label>
-      <input type="file" name="pic1" accept="image/*">
+      <input type="file" name="pic1" accept="image/*" onchange="readURL1(this);">
       <br /><br />
       <label>Picture 2</label>
-      <input type="file" name="pic2" accept="image/*">
+      <input type="file" name="pic2" accept="image/*" onchange="readURL2(this);">
+      <br /><br />
+      <img id="img_prev1" src="#" alt="Preview 1" />
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <img id="img_prev2" src="#" alt="Preview 2" />
       <br /><br />
       <input type="submit" value="Submit"/>
     </form>
