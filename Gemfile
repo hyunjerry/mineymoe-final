@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "gmail"
 gem 'nokogiri', '~> 1.8.2'
+gem 'rails_db'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
