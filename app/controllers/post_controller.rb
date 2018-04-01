@@ -11,6 +11,10 @@ class PostController < ApplicationController
 
   end
 
+  def view
+    @thepost = Post.find(params[:post_id])
+  end
+
   def create
     post = Post.new
 
@@ -36,16 +40,16 @@ class PostController < ApplicationController
 
   end
 
-  def postlike
+  def like
     l = Like.new
-    l.user = current_user;
+    l.user = current_user
     l.post = Post.find(params[:post_id])
     l.save
     redirect_to "/post"
   end
 
-  def postunlike
-    l = Like.where(:post_id => params[:post_id]).where(:user => current_user).take
+  def unlike
+    l = Like.where(:post_id => params[:post_id]).where(:user_id => current_user).take
     l.delete
     redirect_to "/post"
   end

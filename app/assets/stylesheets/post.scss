@@ -1,3 +1,28 @@
 // Place all the styles related to the title controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+    position: relative;
+    left: 0px;
+}
+
+.bottomwhite {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 18px;
+	background-color: white;
+    height: 50%;
+    width: 100%;
+    opacity: 0.5;
+}
+.bottomblack {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 18px;
+	background-color: black;
+    height: 50%;
+    width: 100%;
+    opacity: 0.5;
+}
