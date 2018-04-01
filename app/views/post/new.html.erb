@@ -4,7 +4,7 @@
     <Title>New Post</Title>
   </head>
   <body>
-    <form method='POST' action='/create' enctype="multipart/form-data">
+    <form method='POST' action='create' enctype="multipart/form-data">
       <br />
       <label>Title</label>
       <input type="text" name="title" placeholder="Title"/><br />
@@ -13,11 +13,18 @@
       <br />
       <label>Picture 1</label>
       <input type="file" name="pic1" accept="image/*">
-      <br />
-      <label>Picture 1</label>
+      <br /><br />
+      <label>Picture 2</label>
       <input type="file" name="pic2" accept="image/*">
-      <br />
+      <br /><br />
       <input type="submit" value="Submit"/>
     </form>
+    <% if @post %>
+      <%= @post %>
+    <% else %>
+      <p>
+        none
+      </p>
+    <% end %>
   </body>
 </html>

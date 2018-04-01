@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20180331224932) do
   create_table "likes", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +29,12 @@ ActiveRecord::Schema.define(version: 20180331224932) do
     t.integer "total"
     t.string "a_url", default: ""
     t.string "b_url", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tmpdatabasaes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
