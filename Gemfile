@@ -19,6 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'gcloud'
+gem 'carrierwave'
+gem 'fog-aws'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -29,6 +33,8 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "gmail"
 gem 'nokogiri', '~> 1.8.2'
 
+gem 'rails_db'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -37,6 +43,7 @@ gem 'nokogiri', '~> 1.8.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "serviceworker-rails"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
