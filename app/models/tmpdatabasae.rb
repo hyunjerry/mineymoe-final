@@ -1,0 +1,2 @@
+class Tmpdatabasae < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tmpdatabasaes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tmpdatabasaes.each do |tmpdatabasae| %>
+      <tr>
+        <td><%= tmpdatabasae.name %></td>
+        <td><%= link_to 'Show', tmpdatabasae %></td>
+        <td><%= link_to 'Edit', edit_tmpdatabasae_path(tmpdatabasae) %></td>
+        <td><%= link_to 'Destroy', tmpdatabasae, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tmpdatabasae', new_tmpdatabasae_path %>

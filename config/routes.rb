@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
+  resources :tmpdatabasaes
 
   root to: "home#show"
   get 'home/show'
 
+  get 'post/new'
 
   get '/post' => 'post#index'
 
@@ -35,5 +37,6 @@ Rails.application.routes.draw do
   # get 'auth/failure', to: redirect('/')
   # get 'signout', to: 'sessions#destroy', as: 'signout'
 
-
+  get 'main/home'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
