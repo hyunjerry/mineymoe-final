@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'home/show'
 
   get 'post/post'
+  get 'post/new'
+  post "create" => "post#create"
 
   #
   # get 'auth/:provider/callback', to: 'sessions#create'
